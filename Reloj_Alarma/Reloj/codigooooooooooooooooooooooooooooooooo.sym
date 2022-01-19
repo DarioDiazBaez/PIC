@@ -1,0 +1,231 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @TRIS_C
+028.0   cont
+029     hr
+02A     min
+02B     seg
+02C     dia
+02D     mes
+02E     anio
+02F     a
+030     hra
+031     mina
+032     z
+033-03F limes
+040-047 diasem
+048     @PRINTF_D_79.P1
+048     lcd_init.i
+048     Ajustes.op
+048     activa_alarm.@SCRATCH1
+048     MAIN.@SCRATCH1
+049     @PRINTF_D_79.P1
+049     @PSTRINGCN7_79.P2
+049     @PRINTF_U_79.P3
+049     lcd_init.@SCRATCH1
+049     Confg_hr.@SCRATCH1
+049     Confg_fech.@SCRATCH1
+049     Confg_alarm.@SCRATCH1
+049     @PSTRINGC7_79.@SCRATCH1
+049     Info.@SCRATCH1
+049     Ajustes.@SCRATCH1
+049     @PSTRINGR_79.@SCRATCH1
+049     MAIN.@SCRATCH2
+04A     @PRINTF_U_79.P1
+04A     @PSTRINGCN7_79.@SCRATCH1
+04A     @PSTRINGC7_79.@SCRATCH2
+04A     Ajustes.@SCRATCH2
+04A     @PSTRINGR_79.@SCRATCH2
+04A     @PRINTF_D_79.@SCRATCH1
+04B     @PSTRINGCN7_79.@SCRATCH2
+04B     @PSTRINGC7_79.@SCRATCH3
+04B     @PRINTF_D_79.@SCRATCH2
+04C     @PSTRINGCN7_79.@SCRATCH3
+04C     @PRINTF_D_79.@SCRATCH3
+04D     @PRINTF_D_79.@SCRATCH4
+04E     @DIV88.P1
+04E     lcd_putc.c
+04F     @DIV88.P1
+04F     lcd_gotoxy.x
+04F     @delay_ms1.P1
+050     lcd_gotoxy.y
+050     @DIV88.@SCRATCH1
+051     lcd_gotoxy.address
+052     lcd_gotoxy.@SCRATCH1
+053     lcd_send_byte.address
+054     lcd_send_byte.n
+055     lcd_send_byte.@SCRATCH1
+056     lcd_send_nibble.nibble
+057     temp1s.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+09C.6   C1OUT
+09C.7   C2OUT
+0FF     @INTERRUPT_AREA
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+0248  @delay_ms1
+0031  LCD_INIT_STRING
+025D  lcd_send_nibble
+0294  lcd_send_byte
+02C3  lcd_init
+02F6  lcd_gotoxy
+0308  lcd_putc
+0087  temp1s
+083D  Confg_hr
+009F  @const99
+0373  @PSTRINGCN7_79
+03C2  @DIV88
+03D7  @PRINTF_U_79
+00A8  @const108
+00B0  @const109
+00B8  @const110
+00C0  @const111
+00C8  @const112
+0970  Confg_fech
+00D0  @const114
+00D9  @const115
+00E1  @const116
+00E9  @const117
+00F1  @const118
+00F9  @const119
+0101  @const120
+010A  @const121
+0112  @const122
+011A  @const123
+0122  @const124
+012A  @const125
+0BB2  Confg_alarm
+0132  @const127
+032D  @PSTRINGC7_79
+013B  @const129
+0144  @const130
+014D  @const131
+0155  @const132
+015D  @const133
+0165  @const134
+016D  @const135
+0175  @const136
+0422  activa_alarm
+017D  @const138
+0D39  Info
+0186  @const140
+0190  @const141
+0800  Ajustes
+0199  @const144
+01A2  @const145
+01AA  @const146
+01B3  @const147
+01BB  @const148
+01C4  @const149
+01CD  @const150
+01D6  @const151
+01DF  @const152
+01E8  @const153
+01F1  @const154
+01FA  @const155
+0203  @const156
+020C  @const157
+0214  @const158
+021D  @const159
+0225  @const160
+022E  @const161
+0EC8  @goto10658
+0039  @const163
+0043  @const164
+004E  @const165
+0059  @const166
+0064  @const167
+0070  @const168
+007B  @const169
+0237  @const170
+040C  @PSTRINGR_79
+04AB  MAIN
+0446  @PRINTF_D_79
+0242  @const186
+0245  @const188
+04AB  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\Dario000\Dropbox\relog_con_display_LCD\Reloj Alarma Montaje 6to\Reloj otro\
+
+Project Files:
+    codigooooooooooooooooooooooooooooooooo.c
+    ..\..\..\..\..\..\Program Files (x86)\PICC\devices\16F876a.h
+    LCD1.c
+
+Units:
+    C:\Users\Dario000\Dropbox\relog_con_display_LCD\Reloj Alarma Montaje 6to\Reloj otro\codigooooooooooooooooooooooooooooooooo (main)
+
+Compiler Settings:
+    Processor:      PIC16F876A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      codigooooooooooooooooooooooooooooooooo.err
+    Ext Symbols: codigooooooooooooooooooooooooooooooooo.esym
+    INHX8:       codigooooooooooooooooooooooooooooooooo.hex
+    Symbols:     codigooooooooooooooooooooooooooooooooo.sym
+    List:        codigooooooooooooooooooooooooooooooooo.lst
+    Debug/COFF:  codigooooooooooooooooooooooooooooooooo.cof
+    Project:     codigooooooooooooooooooooooooooooooooo.PJT
+    Call Tree:   codigooooooooooooooooooooooooooooooooo.tre
+    Statistics:  codigooooooooooooooooooooooooooooooooo.sta

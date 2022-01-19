@@ -1,0 +1,20 @@
+[PROJECT]
+Target=reloj prueba.hex
+Processor_Text=PIC16F876A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=reloj prueba.c
+[Directories]
+Include=C:\Program Files (x86)\PICCv5\Devices\;C:\Program Files (x86)\PICCv5\Drivers\
+[reloj prueba.c]
+Type=4
+[mru-list]
+1=reloj prueba.c
+[Opened Files]
+1=reloj prueba.c
+2=..\..\..\..\ligou.c
+3=
+[Units]
+Count=1
+1=reloj prueba (main)

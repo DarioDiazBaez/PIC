@@ -1,0 +1,71 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     i
+021     blue
+022     @TRIS_C
+023     @delay_ms1.P1
+023     servoabrir.@SCRATCH1
+023     servocerrar.@SCRATCH1
+024     @delay_us1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  adelante
+00001F  atras
+00003A  izquierda
+000055  derecha
+000070  freno
+00007B  @delay_us1
+00008A  @delay_ms1
+00009E  servoabrir
+0000BE  servocerrar
+0000E1  main
+0000E1  @cinit1
+0000F5  @cinit2
+00011B  @goto10565
+
+Project Directory:
+    C:\Users\pc-hogar\Dropbox\auto de bluetto\
+
+Project Files:
+    codigoooooooooooooooooooo.c                             [14-nov.-17 16:11  CRC=C3403CE2]
+    ..\..\..\..\Program Files (x86)\PICC\devices\16f876a.h  [12-nov.-13 14:35  CRC=7FE1E080]
+
+Source signature=C303FDE2
+
+Units:
+    codigoooooooooooooooooooo (main)
+
+Compiler Settings:
+    Processor:      PIC16F876A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   codigoooooooooooooooooooo.xsym
+    Errors:      codigoooooooooooooooooooo.err
+    Ext Symbols: codigoooooooooooooooooooo.esym
+    INHX8:       codigoooooooooooooooooooo.hex
+    Symbols:     codigoooooooooooooooooooo.sym
+    List:        codigoooooooooooooooooooo.lst
+    Debug/COFF:  codigoooooooooooooooooooo.cof
+    Project:     codigoooooooooooooooooooo.ccspjt
+    Call Tree:   codigoooooooooooooooooooo.tre
+    Statistics:  codigoooooooooooooooooooo.STA

@@ -1,0 +1,126 @@
+
+ROM used: 3372 (41%)
+          3793 (46%) including unused fragments
+
+          4 Average locations per line
+          8 Average locations per statement
+
+RAM used: 47 (13%) at main() level
+          61 (17%) worst case
+
+Stack used: 7 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  418   356  89  codigooooooooooooooooooooooooooooooooo.c
+  294     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\devices\16F876a.h
+  238    45  11  LCD1.c
+----- -----
+  950   401 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1   1             @delay_ms1
+0      8   0   0             @const65
+0     55   2   1   326  2.8  lcd_send_nibble
+0     47   1   3   235  3.8  lcd_send_byte
+0     51   2   2   380  4.7  lcd_init
+0     18   1   4   186  5.5  lcd_gotoxy
+0     37   1   1   272  4.1  lcd_putc
+0     24   1   1   165  3.5  temp1s
+ Inline        1  1285  5.8  Confg_hr
+0      9   0   0             @const99
+0     79   2   4             @PSTRINGCN7_79
+0     21   1   3             @DIV88
+0     53   2   2             @PRINTF_U_79
+0      8   0   0             @const108
+0      8   0   0             @const109
+0      8   0   0             @const110
+0      8   0   0             @const111
+0      8   0   0             @const112
+ Inline        1  3254  7.9  Confg_fech
+0      9   0   0             @const114
+0      8   0   0             @const115
+0      8   0   0             @const116
+0      8   0   0             @const117
+0      8   0   0             @const118
+0      8   0   0             @const119
+0      9   0   0             @const120
+0      8   0   0             @const121
+0      8   0   0             @const122
+0      8   0   0             @const123
+0      8   0   0             @const124
+0      8   0   0             @const125
+ Inline        1  2043  6.8  Confg_alarm
+0      9   0   0             @const127
+0     70   2   3             @PSTRINGC7_79
+0      9   0   0             @const129
+0      9   0   0             @const130
+0      8   0   0             @const131
+0      8   0   0             @const132
+0      8   0   0             @const133
+0      8   0   0             @const134
+0      8   0   0             @const135
+0      8   0   0             @const136
+0     36   1   1   187  3.4  activa_alarm
+0      9   0   0             @const138
+ Inline        1   151  2.9  Info
+0     10   0   0             @const140
+0      9   0   0             @const141
+1   1736  51   3  4119  8.9  Ajustes
+0      9   0   0             @const144
+0      8   0   0             @const145
+0      9   0   0             @const146
+0      8   0   0             @const147
+0      9   0   0             @const148
+0      9   0   0             @const149
+0      9   0   0             @const150
+0      9   0   0             @const151
+0      9   0   0             @const152
+0      9   0   0             @const153
+0      9   0   0             @const154
+0      9   0   0             @const155
+0      9   0   0             @const156
+0      8   0   0             @const157
+0      9   0   0             @const158
+0      8   0   0             @const159
+0      9   0   0             @const160
+0      9   0   0             @const161
+1      9   0   0             @goto10658
+0     10   0   0             @const163
+0     11   0   0             @const164
+0     11   0   0             @const165
+0     11   0   0             @const166
+0     12   0   0             @const167
+0     11   0   0             @const168
+0     12   0   0             @const169
+0     11   0   0             @const170
+0     22   1   2             @PSTRINGR_79
+0    432  13   2  2132  7.3  MAIN
+0    101   3   6             @PRINTF_D_79
+0      3   0   0             @const186
+0      3   0   0             @const188
+
+Program metrics:
+    Functions               13
+    Statements              401
+    Comments                116
+    Volume (V)              21369
+    Difficilty (D)          64.1
+    Effort to implement (E) 1370462
+    Time to implement (T)   21 hours, 9 minutes
+    Est Delivered Bugs (B)  4
+    Cyclomatic Complexity   107
+    Maintainability (MI)    25
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00030    45  0  
+00031-007FF  1578  421  
+00800-00FFF  1745  303  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

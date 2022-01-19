@@ -1,0 +1,16 @@
+ÀÄcodigoooooooooooooooooooo
+   ÀÄmain  0/58  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@goto10565  0/13  Ram=0
+      ÃÄadelante  0/27  Ram=0
+      ÃÄatras  0/27  Ram=0
+      ÃÄizquierda  0/27  Ram=0
+      ÃÄderecha  0/27  Ram=0
+      ÃÄfreno  0/11  Ram=0
+      ÃÄservoabrir  0/32  Ram=1
+      ³  ÃÄ@delay_us1  0/15  Ram=1
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÀÄservocerrar  0/35  Ram=1
+         ÃÄ@delay_ms1  0/20  Ram=1
+         ÃÄ@delay_us1  0/15  Ram=1
+         ÀÄ@delay_ms1  0/20  Ram=1

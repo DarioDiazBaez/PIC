@@ -1,0 +1,476 @@
+CCS PCM C Compiler, Version 5.015, 5967               28-ene.-18 11:49
+
+               Filename:   C:\Users\pc-hogar\Dropbox\auto de bluetto\codigoooooooooooooooooooo.lst
+
+               ROM used:   296 words (4%)
+                           Largest free fragment is 2048
+               RAM used:   8 (2%) at main() level
+                           10 (3%) worst case
+               Stack used: 2 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   0E1
+0003:  NOP
+.................... /* 
+.................... Autito por control bluetooth 
+.................... Dario Diaz Baez(creador,ideologo,diseñador,un ejemplo de vida) 
+.................... Elias Berreta(aprendio a respirar solo, es todo un logro en su vida) 
+.................... codigo dedicado a todo el tiempo al pedo en mi vida =) 
+.................... */ 
+....................  
+.................... #include <16f876a.h> 
+.................... //////////// Standard Header file for the PIC16F876A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F876A 
+*
+011B:  BSF    0A.0
+011C:  BCF    0A.1
+011D:  BCF    0A.2
+011E:  ADDWF  02,F
+011F:  GOTO   102
+0120:  GOTO   107
+0121:  GOTO   10C
+0122:  GOTO   10E
+0123:  GOTO   110
+0124:  GOTO   112
+0125:  GOTO   114
+0126:  GOTO   116
+0127:  GOTO   118
+....................  
+.................... #list 
+....................  
+.................... #fuses NOWDT,HS 
+.................... #use delay (clock=20M) 
+*
+007B:  MOVLW  03
+007C:  SUBWF  24,F
+007D:  BTFSS  03.0
+007E:  GOTO   089
+007F:  MOVLW  24
+0080:  MOVWF  04
+0081:  BCF    03.7
+0082:  MOVF   00,W
+0083:  BTFSC  03.2
+0084:  GOTO   089
+0085:  GOTO   087
+0086:  GOTO   087
+0087:  DECFSZ 00,F
+0088:  GOTO   086
+0089:  RETURN
+008A:  MOVLW  23
+008B:  MOVWF  04
+008C:  BCF    03.7
+008D:  MOVF   00,W
+008E:  BTFSC  03.2
+008F:  GOTO   09D
+0090:  MOVLW  06
+0091:  MOVWF  78
+0092:  CLRF   77
+0093:  DECFSZ 77,F
+0094:  GOTO   093
+0095:  DECFSZ 78,F
+0096:  GOTO   092
+0097:  MOVLW  7B
+0098:  MOVWF  77
+0099:  DECFSZ 77,F
+009A:  GOTO   099
+009B:  DECFSZ 00,F
+009C:  GOTO   090
+009D:  RETURN
+.................... #use RS232(BAUD=9600,BITS=8,PARITY=N,XMIT=PIN_C6,RCV=PIN_C7) 
+.................... void luz_adelante(); 
+.................... void adelante(); 
+.................... void atras(); 
+.................... void izquierda();//PUTO EL QUE LEE 
+.................... void derecha(); 
+.................... void servoabrir(); 
+.................... void servocerrar(); 
+.................... void freno(); 
+.................... int i; 
+....................  
+.................... /*circuito 
+.................... SERVOS RC0,RC1 
+.................... luz1 rbo luz2 rb1 
+.................... driver l293 rb3 rb4 rb5 rb6 rb7 
+.................... hc-06 rx rc7 tx rc6 
+.................... */ 
+....................  
+.................... char blue; 
+....................  
+.................... void main (){ 
+*
+00E1:  MOVF   03,W
+00E2:  ANDLW  1F
+00E3:  MOVWF  03
+00E4:  MOVLW  81
+00E5:  BSF    03.5
+00E6:  MOVWF  19
+00E7:  MOVLW  A6
+00E8:  MOVWF  18
+00E9:  MOVLW  90
+00EA:  BCF    03.5
+00EB:  MOVWF  18
+00EC:  MOVLW  FF
+00ED:  MOVWF  22
+00EE:  BSF    03.5
+00EF:  BSF    1F.0
+00F0:  BSF    1F.1
+00F1:  BSF    1F.2
+00F2:  BCF    1F.3
+00F3:  MOVLW  07
+00F4:  MOVWF  1C
+00F5:  BCF    03.7
+....................    while (true){ 
+....................    blue=getc();//recibe el dato de la aplicacion y la guarda en blue 
+00F6:  BCF    03.5
+00F7:  BTFSS  0C.5
+00F8:  GOTO   0F7
+00F9:  MOVF   1A,W
+00FA:  MOVWF  21
+....................    //bluetooth// 
+....................    switch (blue) 
+00FB:  MOVLW  41
+00FC:  SUBWF  21,W
+00FD:  ADDLW  F7
+00FE:  BTFSC  03.0
+00FF:  GOTO   119
+0100:  ADDLW  09
+0101:  GOTO   11B
+....................       { 
+....................    case 'A': 
+....................    output_high(PIN_b0); 
+0102:  BSF    03.5
+0103:  BCF    06.0
+0104:  BCF    03.5
+0105:  BSF    06.0
+....................    break; 
+0106:  GOTO   119
+....................    case 'B': 
+....................    output_low(PIN_b0); 
+0107:  BSF    03.5
+0108:  BCF    06.0
+0109:  BCF    03.5
+010A:  BCF    06.0
+....................    break; 
+010B:  GOTO   119
+....................    case 'C': 
+....................    adelante();//el motor gira y el auto avanza 
+010C:  GOTO   004
+....................    break; 
+010D:  GOTO   119
+....................    case 'D': 
+....................    atras();//el motor gira y el auto retrosede enciende led pin 22 
+010E:  GOTO   01F
+....................    break; 
+010F:  GOTO   119
+....................    case 'E': 
+....................    izquierda();//gira a la izquieda 
+0110:  GOTO   03A
+....................    break; 
+0111:  GOTO   119
+....................    case 'F': 
+....................    derecha();//estos comentarios son estupidos 
+0112:  GOTO   055
+....................    break; 
+0113:  GOTO   119
+....................    case 'G': 
+....................    freno();//enciende led pin 22 
+0114:  GOTO   070
+....................    break; 
+0115:  GOTO   119
+....................    case 'H': 
+....................    servoabrir(); 
+0116:  GOTO   09E
+....................    break; 
+0117:  GOTO   119
+....................    case 'I': 
+....................    servocerrar(); 
+0118:  GOTO   0BE
+....................    break; 
+....................     
+....................       }}} 
+0119:  GOTO   0F7
+....................  
+011A:  SLEEP
+.................... /*in1=rb7 in2=rb6 in3=rb5 in4=rb4 EN1,2,3,4=b3 
+....................  
+.................... logica de l293 driver de motor 
+....................  
+....................          adelante atras derecha izquierda   
+....................  
+.................... b7 in1   0        1     1       0 
+.................... b6 in2   1        0     0       1 
+.................... b5 in3   0        1     0       1 
+.................... b4 in4   1        0     1       0 
+....................  
+.................... */ 
+....................  
+.................... void adelante(void){ 
+....................     
+....................    output_low(PIN_b1); 
+*
+0004:  BSF    03.5
+0005:  BCF    06.1
+0006:  BCF    03.5
+0007:  BCF    06.1
+....................    output_high(PIN_b3); 
+0008:  BSF    03.5
+0009:  BCF    06.3
+000A:  BCF    03.5
+000B:  BSF    06.3
+....................    output_low(PIN_b7); 
+000C:  BSF    03.5
+000D:  BCF    06.7
+000E:  BCF    03.5
+000F:  BCF    06.7
+....................    output_high(PIN_b6); 
+0010:  BSF    03.5
+0011:  BCF    06.6
+0012:  BCF    03.5
+0013:  BSF    06.6
+....................    output_low(PIN_b5); 
+0014:  BSF    03.5
+0015:  BCF    06.5
+0016:  BCF    03.5
+0017:  BCF    06.5
+....................    output_high(PIN_b4); 
+0018:  BSF    03.5
+0019:  BCF    06.4
+001A:  BCF    03.5
+001B:  BSF    06.4
+001C:  BCF    0A.3
+001D:  BCF    0A.4
+001E:  GOTO   119 (RETURN)
+.................... } 
+....................  
+.................... void atras(void){ 
+....................  
+....................    output_high(PIN_b1); 
+001F:  BSF    03.5
+0020:  BCF    06.1
+0021:  BCF    03.5
+0022:  BSF    06.1
+....................    output_high(PIN_b3); 
+0023:  BSF    03.5
+0024:  BCF    06.3
+0025:  BCF    03.5
+0026:  BSF    06.3
+....................    output_high(PIN_b7); 
+0027:  BSF    03.5
+0028:  BCF    06.7
+0029:  BCF    03.5
+002A:  BSF    06.7
+....................    output_low(PIN_b6); 
+002B:  BSF    03.5
+002C:  BCF    06.6
+002D:  BCF    03.5
+002E:  BCF    06.6
+....................    output_high(PIN_b5); 
+002F:  BSF    03.5
+0030:  BCF    06.5
+0031:  BCF    03.5
+0032:  BSF    06.5
+....................    output_low(PIN_b4); 
+0033:  BSF    03.5
+0034:  BCF    06.4
+0035:  BCF    03.5
+0036:  BCF    06.4
+0037:  BCF    0A.3
+0038:  BCF    0A.4
+0039:  GOTO   119 (RETURN)
+.................... } 
+....................  
+.................... void derecha(void){ 
+....................  
+....................    output_low(PIN_b1); 
+*
+0055:  BSF    03.5
+0056:  BCF    06.1
+0057:  BCF    03.5
+0058:  BCF    06.1
+....................    output_high(PIN_b3); 
+0059:  BSF    03.5
+005A:  BCF    06.3
+005B:  BCF    03.5
+005C:  BSF    06.3
+....................    output_high(PIN_b7); 
+005D:  BSF    03.5
+005E:  BCF    06.7
+005F:  BCF    03.5
+0060:  BSF    06.7
+....................    output_low(PIN_b6); 
+0061:  BSF    03.5
+0062:  BCF    06.6
+0063:  BCF    03.5
+0064:  BCF    06.6
+....................    output_low(PIN_b5); 
+0065:  BSF    03.5
+0066:  BCF    06.5
+0067:  BCF    03.5
+0068:  BCF    06.5
+....................    output_high(PIN_b4); 
+0069:  BSF    03.5
+006A:  BCF    06.4
+006B:  BCF    03.5
+006C:  BSF    06.4
+006D:  BCF    0A.3
+006E:  BCF    0A.4
+006F:  GOTO   119 (RETURN)
+.................... } 
+....................  
+.................... void izquierda(void){ 
+....................  
+....................    output_low(PIN_b1); 
+*
+003A:  BSF    03.5
+003B:  BCF    06.1
+003C:  BCF    03.5
+003D:  BCF    06.1
+....................    output_high(PIN_b3); 
+003E:  BSF    03.5
+003F:  BCF    06.3
+0040:  BCF    03.5
+0041:  BSF    06.3
+....................    output_low(PIN_b7); 
+0042:  BSF    03.5
+0043:  BCF    06.7
+0044:  BCF    03.5
+0045:  BCF    06.7
+....................    output_high(PIN_b6); 
+0046:  BSF    03.5
+0047:  BCF    06.6
+0048:  BCF    03.5
+0049:  BSF    06.6
+....................    output_high(PIN_b5); 
+004A:  BSF    03.5
+004B:  BCF    06.5
+004C:  BCF    03.5
+004D:  BSF    06.5
+....................    output_low(PIN_b4); 
+004E:  BSF    03.5
+004F:  BCF    06.4
+0050:  BCF    03.5
+0051:  BCF    06.4
+0052:  BCF    0A.3
+0053:  BCF    0A.4
+0054:  GOTO   119 (RETURN)
+.................... } 
+....................  
+.................... void servoabrir(void){ 
+....................  
+....................    for(i=0;i<20;i++) 
+*
+009E:  CLRF   20
+009F:  MOVF   20,W
+00A0:  SUBLW  13
+00A1:  BTFSS  03.0
+00A2:  GOTO   0BB
+....................     { 
+....................      output_high(PIN_C0); 
+00A3:  BCF    22.0
+00A4:  MOVF   22,W
+00A5:  BSF    03.5
+00A6:  MOVWF  07
+00A7:  BCF    03.5
+00A8:  BSF    07.0
+....................      delay_us(600); 
+00A9:  MOVLW  03
+00AA:  MOVWF  23
+00AB:  MOVLW  C7
+00AC:  MOVWF  24
+00AD:  CALL   07B
+00AE:  DECFSZ 23,F
+00AF:  GOTO   0AB
+....................      output_low(PIN_C0); 
+00B0:  BCF    22.0
+00B1:  MOVF   22,W
+00B2:  BSF    03.5
+00B3:  MOVWF  07
+00B4:  BCF    03.5
+00B5:  BCF    07.0
+....................      delay_us(18000);} 
+00B6:  MOVLW  12
+00B7:  MOVWF  23
+00B8:  CALL   08A
+00B9:  INCF   20,F
+00BA:  GOTO   09F
+00BB:  BCF    0A.3
+00BC:  BCF    0A.4
+00BD:  GOTO   119 (RETURN)
+.................... } 
+....................  
+.................... void servocerrar (void){ 
+....................  
+....................    for(i=0;i<20;i++) 
+00BE:  CLRF   20
+00BF:  MOVF   20,W
+00C0:  SUBLW  13
+00C1:  BTFSS  03.0
+00C2:  GOTO   0DE
+....................     { 
+....................      output_high(PIN_C0); 
+00C3:  BCF    22.0
+00C4:  MOVF   22,W
+00C5:  BSF    03.5
+00C6:  MOVWF  07
+00C7:  BCF    03.5
+00C8:  BSF    07.0
+....................      delay_us(2400); 
+00C9:  MOVLW  02
+00CA:  MOVWF  23
+00CB:  CALL   08A
+00CC:  MOVLW  02
+00CD:  MOVWF  23
+00CE:  MOVLW  C7
+00CF:  MOVWF  24
+00D0:  CALL   07B
+00D1:  DECFSZ 23,F
+00D2:  GOTO   0CE
+....................      output_low(PIN_C0); 
+00D3:  BCF    22.0
+00D4:  MOVF   22,W
+00D5:  BSF    03.5
+00D6:  MOVWF  07
+00D7:  BCF    03.5
+00D8:  BCF    07.0
+....................      delay_us(18000);;} 
+00D9:  MOVLW  12
+00DA:  MOVWF  23
+00DB:  CALL   08A
+00DC:  INCF   20,F
+00DD:  GOTO   0BF
+00DE:  BCF    0A.3
+00DF:  BCF    0A.4
+00E0:  GOTO   119 (RETURN)
+.................... } 
+....................  
+.................... void freno(void){ 
+....................    output_low(PIN_b3); 
+*
+0070:  BSF    03.5
+0071:  BCF    06.3
+0072:  BCF    03.5
+0073:  BCF    06.3
+....................    output_high(PIN_b1); 
+0074:  BSF    03.5
+0075:  BCF    06.1
+0076:  BCF    03.5
+0077:  BSF    06.1
+0078:  BCF    0A.3
+0079:  BCF    0A.4
+007A:  GOTO   119 (RETURN)
+.................... } 
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

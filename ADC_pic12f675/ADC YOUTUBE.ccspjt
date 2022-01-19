@@ -1,0 +1,54 @@
+[PROJECT]
+Target=ADC YOUTUBE.hex
+Processor_Text=PIC12F675
+CCSVersion=5.061
+Compiler=PCM
+[Target Data]
+FileList=ADC YOUTUBE.c
+[ADC YOUTUBE.c]
+Type=4
+[mru-list]
+1=ADC YOUTUBE.c
+
+[defines]
+buildcount=19
+
+[Opened Files]
+1=ADC YOUTUBE.c
+t1=1
+2=..\..\PIC16f628A\condicional IF\ENTRADA.c
+t2=1
+Count=2
+
+[ProjectLog]
+Days=3
+D1=16-01-2018
+D1_L=2
+D1_L1=[45410]Stopped Editing.
+TotalEdit=30
+TotalDebug=0
+D1_E=12
+D1_D=0
+D1_L2=[54457]Project Closed.
+D2=17-01-2018
+D2_L=8
+D2_L1=[78215]Project Opened.
+D2_L2=[78276]Started Editing.
+D2_L3=[78578]Stopped Editing.
+D2_L4=[78953]Started Editing.
+D2_L5=[79317]Stopped Editing.
+D2_L6=[79451]Started Editing.
+D2_L7=[80705]Stopped Editing.
+D2_E=18
+D2_D=0
+D2_L8=[80928]Project Closed.
+D3=18-01-2018
+D3_L=5
+D3_L1=[35737]Project Opened.
+D3_L2=[35778]Started Editing.
+D3_L3=[37058]Stopped Editing.
+D3_L4=[37183]Started Editing.
+D3_L5=[37486]Stopped Editing.
+[Units]
+Count=1
+1=ADC YOUTUBE (main)

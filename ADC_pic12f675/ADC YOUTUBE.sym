@@ -1,0 +1,51 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+019.6   C1OUT
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+025-026 main.analogico
+027     main.@SCRATCH1
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+00000A  main
+00000A  @cinit1
+000016  @cinit2
+
+Project Directory:
+    C:\Users\ELECTROALL\Documents\PIC\Ejemplos pick\PIC12f675\ADC pic12f675 YOUTUBE\
+
+Project Files:
+    ADC YOUTUBE.c                                           [18-ene-18 10:19  CRC=70D1F984]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\12F675.h [28-jun-16 13:57  CRC=9F1B1C75]
+
+Source signature=AF08326E
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=70D0
+
+Units:
+    ADC YOUTUBE (main)
+
+Compiler Settings:
+    Processor:      PIC12F675
+    Pointer Size:   8
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   ADC YOUTUBE.xsym
+    Errors:      ADC YOUTUBE.err
+    Ext Symbols: ADC YOUTUBE.esym
+    INHX8:       ADC YOUTUBE.hex
+    Symbols:     ADC YOUTUBE.sym
+    List:        ADC YOUTUBE.lst
+    Debug/COFF:  ADC YOUTUBE.cof
+    Project:     ADC YOUTUBE.ccspjt
+    Call Tree:   ADC YOUTUBE.tre
+    Statistics:  ADC YOUTUBE.STA

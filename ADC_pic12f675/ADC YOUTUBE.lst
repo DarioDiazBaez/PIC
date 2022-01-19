@@ -1,0 +1,213 @@
+CCS PCM C Compiler, Version 5.061, 56587               18-ene-18 10:19
+
+               Filename:   C:\Users\ELECTROALL\Documents\PIC\Ejemplos pick\PIC12f675\ADC pic12f675 YOUTUBE\ADC YOUTUBE.lst
+
+               ROM used:   136 words (13%)
+                           Largest free fragment is 888
+               RAM used:   7 (11%) at main() level
+                           7 (11%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+0004:  CALL   3FF
+0005:  BSF    03.5
+0006:  MOVWF  10
+0007:  MOVLW  00
+0008:  MOVWF  0A
+0009:  GOTO   00A
+.................... # INCLUDE <12F675.h> 
+.................... //////////// Standard Header file for the PIC12F675 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC12F675 
+....................  
+.................... #list 
+....................  
+.................... # DEVICE ADC=10 
+.................... # FUSES NOMCLR 
+.................... # USE delay (internaL=4M) 
+.................... void main (){ 
+000A:  MOVF   03,W
+000B:  ANDLW  1F
+000C:  MOVWF  03
+000D:  BCF    1F.6
+000E:  BSF    03.5
+000F:  BCF    1F.0
+0010:  BCF    1F.1
+0011:  BCF    1F.2
+0012:  BCF    1F.3
+0013:  MOVLW  07
+0014:  BCF    03.5
+0015:  MOVWF  19
+.................... setup_adc_ports(sAN0); 
+0016:  BCF    1F.6
+0017:  BSF    03.5
+0018:  BSF    1F.0
+0019:  BCF    1F.1
+001A:  BCF    1F.2
+001B:  BCF    1F.3
+.................... setup_adc(ADC_CLOCK_INTERNAL); 
+001C:  BSF    1F.4
+001D:  BSF    1F.5
+001E:  BCF    1F.6
+001F:  BCF    03.5
+0020:  BSF    1F.7
+0021:  BSF    1F.0
+.................... while (true){ 
+.................... int16 analogico; 
+.................... set_adc_channel(0); 
+0022:  MOVLW  00
+0023:  MOVWF  21
+0024:  MOVF   1F,W
+0025:  ANDLW  F3
+0026:  IORWF  21,W
+0027:  MOVWF  1F
+.................... delay_us(10); 
+0028:  MOVLW  03
+0029:  MOVWF  20
+002A:  DECFSZ 20,F
+002B:  GOTO   02A
+.................... analogico = read_adc(); 
+002C:  BSF    1F.1
+002D:  BTFSC  1F.1
+002E:  GOTO   02D
+002F:  BSF    03.5
+0030:  MOVF   1E,W
+0031:  BCF    03.5
+0032:  MOVWF  25
+0033:  MOVF   1E,W
+0034:  MOVWF  26
+....................   if (input(pin_a3)==0){ 
+0035:  BSF    03.5
+0036:  BSF    05.3
+0037:  BCF    03.5
+0038:  BTFSC  05.3
+0039:  GOTO   04A
+....................  
+....................  
+....................   if (analogico>100){ 
+003A:  MOVF   26,F
+003B:  BTFSS  03.2
+003C:  GOTO   041
+003D:  MOVF   25,W
+003E:  SUBLW  64
+003F:  BTFSC  03.0
+0040:  GOTO   046
+....................   output_high(pin_a1); 
+0041:  BSF    03.5
+0042:  BCF    05.1
+0043:  BCF    03.5
+0044:  BSF    05.1
+....................   } 
+0045:  GOTO   04A
+.................... else{ 
+....................  output_low(pin_a1); 
+0046:  BSF    03.5
+0047:  BCF    05.1
+0048:  BCF    03.5
+0049:  BCF    05.1
+.................... } 
+....................   } 
+.................... if (analogico>300){ 
+004A:  MOVF   26,W
+004B:  SUBLW  00
+004C:  BTFSC  03.0
+004D:  GOTO   05A
+004E:  XORLW  FF
+004F:  BTFSS  03.2
+0050:  GOTO   055
+0051:  MOVF   25,W
+0052:  SUBLW  2C
+0053:  BTFSC  03.0
+0054:  GOTO   05A
+....................   output_high(pin_a2); 
+0055:  BSF    03.5
+0056:  BCF    05.2
+0057:  BCF    03.5
+0058:  BSF    05.2
+....................   } 
+0059:  GOTO   05E
+....................   else{ 
+....................  output_low(pin_a2); 
+005A:  BSF    03.5
+005B:  BCF    05.2
+005C:  BCF    03.5
+005D:  BCF    05.2
+....................   } 
+....................    
+....................    
+....................    if (analogico>700){ 
+005E:  MOVF   26,W
+005F:  SUBLW  01
+0060:  BTFSC  03.0
+0061:  GOTO   06E
+0062:  XORLW  FF
+0063:  BTFSS  03.2
+0064:  GOTO   069
+0065:  MOVF   25,W
+0066:  SUBLW  BC
+0067:  BTFSC  03.0
+0068:  GOTO   06E
+....................   output_high(pin_a4); 
+0069:  BSF    03.5
+006A:  BCF    05.4
+006B:  BCF    03.5
+006C:  BSF    05.4
+....................   } 
+006D:  GOTO   072
+....................    else{ 
+....................  output_low(pin_a4); 
+006E:  BSF    03.5
+006F:  BCF    05.4
+0070:  BCF    03.5
+0071:  BCF    05.4
+....................   } 
+....................    
+....................   
+....................   if (analogico>900){ 
+0072:  MOVF   26,W
+0073:  SUBLW  02
+0074:  BTFSC  03.0
+0075:  GOTO   082
+0076:  XORLW  FF
+0077:  BTFSS  03.2
+0078:  GOTO   07D
+0079:  MOVF   25,W
+007A:  SUBLW  84
+007B:  BTFSC  03.0
+007C:  GOTO   082
+....................   output_high(pin_a5); 
+007D:  BSF    03.5
+007E:  BCF    05.5
+007F:  BCF    03.5
+0080:  BSF    05.5
+....................   } 
+0081:  GOTO   086
+....................    else{ 
+....................  output_low(pin_a5); 
+0082:  BSF    03.5
+0083:  BCF    05.5
+0084:  BCF    03.5
+0085:  BCF    05.5
+....................   } 
+0086:  GOTO   022
+....................    } 
+.................... } 
+....................  
+0087:  SLEEP
+....................  
+
+Configuration Fuses:
+   Word  1: 11C4   INTRC_IO NOWDT PUT NOMCLR BROWNOUT NOPROTECT NOCPD
